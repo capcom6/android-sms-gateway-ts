@@ -1,0 +1,45 @@
+{
+  "name": "android-sms-gateway",
+  "license": "Apache-2.0",
+  "description": "A JS/TS client library for sending and managing SMS messages via the Android SMS Gateway API",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/capcom6/android-sms-gateway-ts.git"
+  },
+  "homepage": "https://github.com/capcom6/android-sms-gateway-ts",
+  "keywords": [
+    "bun",
+    "sms",
+    "android",
+    "sms-gateway",
+    "api",
+    "client",
+    "typescript"
+  ],
+  "author": {
+    "name": "Aleksandr Soloshenko",
+    "email": "i@capcom.me",
+    "url": "https://github.com/capcom6"
+  },
+  "bugs": {
+    "url": "https://github.com/capcom6/android-sms-gateway-ts/issues"
+  },
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "bun-plugin-dts": "^0.2.1",
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "build": "bun run build.mjs",
+    "prepublishOnly": "bun run build"
+  },
+  "type": "module"
+}
