@@ -1,6 +1,6 @@
 # Android SMS Gateway JS/TS API Client
 
-This is a PHP client library for interfacing with the [Android SMS Gateway API](https://sms.capcom.me).
+This is a JavaScript/TypeScript client library for interfacing with the [Android SMS Gateway API](https://sms.capcom.me).
 
 ## Features
 
