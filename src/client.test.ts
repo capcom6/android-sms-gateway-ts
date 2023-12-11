@@ -41,7 +41,7 @@ describe('Client', () => {
             message,
             {
                 "Content-Type": "application/json",
-                "User-Agent": "android-sms-gateway/1.0 (js)",
+                "User-Agent": "android-sms-gateway/1.0 (client; js)",
                 Authorization: expect.any(String),
             },
         );
@@ -68,7 +68,7 @@ describe('Client', () => {
         expect(mockHttpClient.get).toHaveBeenCalledWith(
             `${BASE_URL}/message/${messageId}`,
             {
-                "User-Agent": "android-sms-gateway/1.0 (js)",
+                "User-Agent": "android-sms-gateway/1.0 (client; js)",
                 Authorization: expect.any(String),
             },
         );
