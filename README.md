@@ -20,7 +20,7 @@ Before you begin, ensure you have met the following requirements:
 To install the SMS Gateway API Client, run this command in your terminal:
 
 ```bash
-npm install sms-gateway-client
+npm install android-sms-gateway
 ```
 
 ## Usage
@@ -33,7 +33,7 @@ Here's how to get started with the SMS Gateway API Client:
 4. Use the `getState` method to check the status of a sent message.
 
 ```javascript
-const { Client } = require('sms-gateway-client');
+import Client from "android-sms-gateway";
 
 // Example of an HTTP client based on fetch
 const httpFetchClient = {
