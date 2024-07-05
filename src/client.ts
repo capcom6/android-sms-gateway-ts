@@ -1,4 +1,4 @@
-import { Message, MessageState } from "./domain";
+import { Message, MessageState, RegisterWebHookRequest, WebHook } from "./domain";
 import { HttpClient } from "./http";
 
 export const BASE_URL = "https://sms.capcom.me/api/3rdparty/v1";
@@ -34,5 +34,33 @@ export class Client {
         };
 
         return this.httpClient.get<MessageState>(url, headers);
+    }
+
+    async getWebhooks(): Promise<WebHook[]> {
+        const url = `${this.baseUrl}/webhooks`;
+        const headers = {
+            ...this.defaultHeaders,
+        };
+
+        return this.httpClient.get<WebHook[]>(url, headers);
+    }
+
+    async registerWebhook(request: RegisterWebHookRequest): Promise<WebHook> {
+        const url = `${this.baseUrl}/webhooks`;
+        const headers = {
+            "Content-Type": "application/json",
+            ...this.defaultHeaders,
+        };
+
+        return this.httpClient.post<WebHook>(url, request, headers);
+    }
+
+    async deleteWebhook(webhookId: string): Promise<void> {
+        const url = `${this.baseUrl}/webhooks/${webhookId}`;
+        const headers = {
+            ...this.defaultHeaders,
+        };
+
+        return this.httpClient.delete<void>(url, headers);
     }
 }

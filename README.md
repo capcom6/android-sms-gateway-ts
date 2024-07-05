@@ -1,11 +1,22 @@
-# Android SMS Gateway JS/TS API Client
+![npm](https://img.shields.io/npm/v/android-sms-gateway?style=for-the-badge)
+![License](https://img.shields.io/badge/license-Apache--2.0-blue?style=for-the-badge)
+![Downloads](https://img.shields.io/npm/dw/android-sms-gateway?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/capcom6/android-sms-gateway-ts?style=for-the-badge)
+![GitHub stars](https://img.shields.io/github/stars/capcom6/android-sms-gateway-ts?style=for-the-badge)
+<!-- ![Build Status](https://img.shields.io/travis/com/capcom6/android-sms-gateway-ts/master) -->
+<!-- ![Coverage](https://img.shields.io/codecov/c/github/capcom6/android-sms-gateway-ts) -->
+<!-- ![Dependencies](https://img.shields.io/david/capcom6/android-sms-gateway-ts) -->
+<!-- ![TypeScript Version](https://img.shields.io/npm/types/android-sms-gateway) -->
 
-This is a JavaScript/TypeScript client library for interfacing with the [Android SMS Gateway API](https://sms.capcom.me).
+# SMS Gateway for Android™ JS/TS API Client
+
+This is a JavaScript/TypeScript client library for interfacing with the [SMS Gateway for Android API](https://sms.capcom.me).
 
 ## Features
 
 - Send SMS messages with a simple method call.
 - Check the state of sent messages.
+- Managing webhooks.
 - Customizable base URL for use with local or cloud servers.
 
 ## Prerequisites
@@ -17,7 +28,7 @@ Before you begin, ensure you have met the following requirements:
 
 ## Installation
 
-To install the SMS Gateway API Client, run this command in your terminal:
+To install the SMS Gateway for Android API Client, run this command in your terminal:
 
 ```bash
 npm install android-sms-gateway
@@ -53,6 +64,14 @@ const httpFetchClient = {
         });
 
         return response.json();
+    },
+    delete: async (url, headers) => {
+        const response = await fetch(url, {
+            method: "DELETE",
+            headers
+        });
+
+        return response.json();
     }
 };
 
@@ -79,7 +98,7 @@ apiClient.getState(messageId)
 
 ## API Reference
 
-For more information on the API endpoints and data structures, please consult the [Android SMS Gateway API documentation](https://sms.capcom.me/api/).
+For more information on the API endpoints and data structures, please consult the [SMS Gateway for Android API documentation](https://sms.capcom.me/integration/api/).
 
 # Contributing
 

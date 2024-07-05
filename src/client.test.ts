@@ -1,5 +1,5 @@
 import { BASE_URL, Client } from './client';
-import { Message, MessageState, ProcessState } from './domain';
+import { Message, MessageState, RegisterWebHookRequest, ProcessState, WebHook, WebHookEventType } from './domain';
 import { HttpClient } from './http';
 
 import { beforeEach, describe, expect, it, jest } from "bun:test";
@@ -12,6 +12,7 @@ describe('Client', () => {
         mockHttpClient = {
             get: jest.fn(),
             post: jest.fn(),
+            delete: jest.fn(),
         };
         client = new Client('login', 'password', mockHttpClient);
     });
@@ -73,5 +74,67 @@ describe('Client', () => {
             },
         );
         expect(result).toBe(expectedState);
+    });
+
+    it('gets webhooks', async () => {
+        const expectedWebhooks: WebHook[] = [
+            { id: '1', url: 'https://example.com/webhook1', event: WebHookEventType.SmsReceived },
+            { id: '2', url: 'https://example.com/webhook2', event: WebHookEventType.SystemPing },
+        ];
+
+        mockHttpClient.get.mockResolvedValue(expectedWebhooks);
+
+        const result = await client.getWebhooks();
+
+        expect(mockHttpClient.get).toHaveBeenCalledWith(
+            `${BASE_URL}/webhooks`,
+            {
+                "User-Agent": "android-sms-gateway/1.0 (client; js)",
+                Authorization: expect.any(String),
+            },
+        );
+        expect(result).toEqual(expectedWebhooks);
+    });
+
+    it('register a webhook', async () => {
+        const req: RegisterWebHookRequest = {
+            url: 'https://example.com/webhook',
+            event: WebHookEventType.SmsReceived,
+        }
+        const expectedRes: WebHook = {
+            id: 'test',
+            url: 'https://example.com/webhook',
+            event: WebHookEventType.SmsReceived,
+        };
+
+        mockHttpClient.post.mockResolvedValue(expectedRes);
+
+        const result = await client.registerWebhook(req);
+
+        expect(mockHttpClient.post).toHaveBeenCalledWith(
+            `${BASE_URL}/webhooks`,
+            req,
+            {
+                "Content-Type": "application/json",
+                "User-Agent": "android-sms-gateway/1.0 (client; js)",
+                Authorization: expect.any(String),
+            },
+        );
+        expect(result).toBe(expectedRes);
+    });
+
+    it('delete a webhook', async () => {
+        mockHttpClient.post.mockResolvedValue(undefined);
+
+        const result = await client.deleteWebhook('test');
+
+        expect(mockHttpClient.delete).toHaveBeenCalledWith(
+            `${BASE_URL}/webhooks/test`,
+            {
+                "User-Agent": "android-sms-gateway/1.0 (client; js)",
+                Authorization: expect.any(String),
+            },
+        );
+        expect(result).toBe(undefined);
     });
 });
