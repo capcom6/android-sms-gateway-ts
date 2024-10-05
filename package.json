@@ -40,6 +40,5 @@
   "scripts": {
     "build": "bun run build.mjs",
     "prepublishOnly": "bun run build"
-  },
-  "type": "module"
+  }
 }
