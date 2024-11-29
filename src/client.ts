@@ -1,7 +1,7 @@
 import { Message, MessageState, RegisterWebHookRequest, WebHook } from "./domain";
 import { HttpClient } from "./http";
 
-export const BASE_URL = "https://sms.capcom.me/api/3rdparty/v1";
+export const BASE_URL = "https://api.sms-gate.app/3rdparty/v1";
 
 export class Client {
     private baseUrl: string;
@@ -12,7 +12,7 @@ export class Client {
         this.baseUrl = baseUrl;
         this.httpClient = httpClient;
         this.defaultHeaders = {
-            "User-Agent": "android-sms-gateway/1.0 (client; js)",
+            "User-Agent": "android-sms-gateway/2.0 (client; js)",
             "Authorization": `Basic ${btoa(`${login}:${password}`)}`,
         }
     }
