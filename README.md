@@ -1,16 +1,16 @@
 ![npm](https://img.shields.io/npm/v/android-sms-gateway?style=for-the-badge)
 ![License](https://img.shields.io/badge/license-Apache--2.0-blue?style=for-the-badge)
 ![Downloads](https://img.shields.io/npm/dw/android-sms-gateway?style=for-the-badge)
-![GitHub issues](https://img.shields.io/github/issues/capcom6/android-sms-gateway-ts?style=for-the-badge)
-![GitHub stars](https://img.shields.io/github/stars/capcom6/android-sms-gateway-ts?style=for-the-badge)
-<!-- ![Build Status](https://img.shields.io/travis/com/capcom6/android-sms-gateway-ts/master) -->
-<!-- ![Coverage](https://img.shields.io/codecov/c/github/capcom6/android-sms-gateway-ts) -->
-<!-- ![Dependencies](https://img.shields.io/david/capcom6/android-sms-gateway-ts) -->
+![GitHub issues](https://img.shields.io/github/issues/android-sms-gateway/client-ts?style=for-the-badge)
+![GitHub stars](https://img.shields.io/github/stars/android-sms-gateway/client-ts?style=for-the-badge)
+<!-- ![Build Status](https://img.shields.io/travis/com/android-sms-gateway/client-ts/master) -->
+<!-- ![Coverage](https://img.shields.io/codecov/c/github/android-sms-gateway/client-ts) -->
+<!-- ![Dependencies](https://img.shields.io/david/android-sms-gateway/client-ts) -->
 <!-- ![TypeScript Version](https://img.shields.io/npm/types/android-sms-gateway) -->
 
 # SMS Gateway for Android™ JS/TS API Client
 
-This is a JavaScript/TypeScript client library for interfacing with the [SMS Gateway for Android API](https://sms.capcom.me).
+This is a JavaScript/TypeScript client library for interfacing with the [SMS Gateway for Android](https://sms-gate.app).
 
 ## Features
 
@@ -98,7 +98,7 @@ apiClient.getState(messageId)
 
 ## API Reference
 
-For more information on the API endpoints and data structures, please consult the [SMS Gateway for Android API documentation](https://sms.capcom.me/integration/api/).
+For more information on the API endpoints and data structures, please consult the [SMS Gateway for Android API documentation](https://docs.sms-gate.app/integration/api/).
 
 # Contributing
 
